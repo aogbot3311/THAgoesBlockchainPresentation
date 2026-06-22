@@ -580,13 +580,13 @@
                     <div style="font-size:0.78rem;letter-spacing:0.1em;text-transform:uppercase;color:#5a7090;">System Flow</div>
                     <div style="display:flex;flex-direction:column;gap:0.35rem;align-items:flex-start;">
                         <div class="flow-node highlight" style="min-width:180px;">Customer</div>
-                        <div class="flow-arrow" style="align-self:flex-start;padding-left:1rem;">↓ Text</div>
+                        <div class="flow-arrow" style="align-self:flex-start;padding-left:1rem;">↓ Creates Order</div>
                         <div class="flow-node" style="min-width:180px;">Payment Gateway</div>
-                        <div class="flow-arrow" style="align-self:flex-start;padding-left:1rem;">↓ Text</div>
+                        <div class="flow-arrow" style="align-self:flex-start;padding-left:1rem;">↓ Processes Payment</div>
                         <div class="flow-node" style="min-width:180px;">VAT Engine</div>
-                        <div class="flow-arrow" style="align-self:flex-start;padding-left:1rem;">↓ Text</div>
+                        <div class="flow-arrow" style="align-self:flex-start;padding-left:1rem;">↓ Calculates & Splits VAT</div>
                         <div class="flow-node" style="min-width:180px;">Blockchain Ledger</div>
-                        <div class="flow-arrow" style="align-self:flex-start;padding-left:1rem;">↓ Text</div>
+                        <div class="flow-arrow" style="align-self:flex-start;padding-left:1rem;">↓ Stores Transaction Hash</div>
                         <div class="flow-node highlight" style="min-width:180px;">Live Dashboard</div>
                     </div>
                 </div>
@@ -830,12 +830,15 @@
                 </div>
             </div>
             <!-- Right: Live URL / QR placeholder -->
-            <div style="display:flex;flex-direction:column;gap:1.2rem;align-items:center;margin-top:6rem" class="reveal">
-                <div style="background:var(--color-glass-bg);border:1px solid var(--color-glass-border);backdrop-filter:blur(12px);border-radius:14px;padding:1.4rem;text-align:center;width:100%;">
-                    <div style="font-size:0.78rem;letter-spacing:0.1em;text-transform:uppercase;color:#5a7090;margin-bottom:0.5rem;">Live Demo URL</div>
-                    <div style="font-size:0.95rem;color:#38bdf8;font-weight:600;">
-                        <!-- PLACEHOLDER: Replace with your actual demo URL -->
-                        https://PLACEHOLDER-DEMO-URL.com
+            <div style="display:flex;flex-direction:column;gap:1.2rem;align-items:center;margin-top:2rem;justify-self:end;" class="reveal">
+                <div style="background:var(--color-glass-bg);border:1px solid var(--color-glass-border);backdrop-filter:blur(12px);border-radius:14px;padding:1.4rem;text-align:center;width:fit-content;">
+                    <div style="font-size:0.78rem;letter-spacing:0.1em;text-transform:uppercase;color:#5a7090;margin-bottom:0.8rem;">Live Demo</div>
+                    <!-- QR Code Image — ersetze src mit deinem QR Code Bild -->
+                    <img src="QRCODEWEB.jpeg" alt="Demo QR Code" style="width:140px;height:140px;border-radius:8px;display:block;margin:0 auto 0.8rem auto;">
+                    <div style="font-size:0.78rem;color:#38bdf8;font-weight:600;word-break:break-all;">
+                        <a href="https://blockchain-cafe.informatik.tha.de/" target="_blank" style="color:#38bdf8;text-decoration:none;">
+                            blockchain-cafe.informatik.tha.de
+                        </a>
                     </div>
                 </div>
             </div>
@@ -852,64 +855,91 @@
         - Database name / type
         - Deployment target
     -->
-    <div class="slide" data-slide="12">
+    <div class="slide" data-slide="12" style="margin-top:-1rem;">
         <div class="gradient-mesh">
             <div class="blob" style="width:370px;height:370px;top:-70px;right:-55px;background:#3b82f6;opacity:0.08;"></div>
             <div class="blob" style="width:250px;height:250px;bottom:-55px;left:-35px;background:#818cf8;opacity:0.06;"></div>
         </div>
         <div class="content">
             <div class="section-label reveal">System Design</div>
-            <h2 class="font-display reveal" style="font-size:clamp(1.5rem,2.8vw,2.2rem);margin:0 0 1.2rem 0;">Technical Architecture</h2>
-            <!-- Architecture layers -->
-            <div style="display:flex;flex-direction:column;gap:0.5rem;" class="reveal">
-                <!-- Frontend -->
-                <div style="background:rgba(59,130,246,0.10);border:1px solid rgba(59,130,246,0.25);border-radius:10px;padding:0.8rem 1.2rem;display:flex;align-items:center;gap:1rem;">
-                    <span style="font-size:1.3rem;"></span>
-                    <div>
-                        <div style="font-weight:600;font-size:0.9rem;">Frontend</div>
-                        <div style="font-size:0.78rem;color:#5a7090;">
-                            <!-- PLACEHOLDER: Replace with your actual frontend technology -->
-                            React / Vue / PLACEHOLDER-FRAMEWORK · POS UI · Dashboard · Invoice View
-                        </div>
-                    </div>
+            <h2 class="font-display reveal" style="font-size:clamp(1.5rem,2.8vw,2.2rem);margin:0 0 1.2rem 0;">Technical Architecture</h2><!-- Architecture layers — REPLACED WITH UML DIAGRAM -->
+            <div class="reveal" style="position:relative;width:100%;margin-top:0.8rem;">
+
+                <!-- Image container with zoom -->
+                <div id="uml-container" style="position:relative;overflow:hidden;border-radius:12px;border:1px solid rgba(56,189,248,0.15);cursor:none;background:#0a1628;">
+                    <img id="uml-img" src="UMLARCH.png" alt="UML Architecture Diagram"
+                         style="width:100%;display:block;transform-origin:center center;transition:transform 0.15s ease;user-select:none;pointer-events:none;">
+
+                    <!-- Laser pointer dot -->
+                    <div id="laser-dot" style="position:absolute;width:10px;height:10px;border-radius:50%;background:rgba(255,30,30,0.95);box-shadow:0 0 8px 4px rgba(255,50,50,0.6),0 0 20px 8px rgba(255,0,0,0.3);pointer-events:none;transform:translate(-50%,-50%);display:none;z-index:10;"></div>
                 </div>
-                <div style="text-align:center;color:#3b82f6;font-size:1rem;">↓</div>
-                <!-- Gateway -->
-                <div style="background:rgba(56,189,248,0.08);border:1px solid rgba(56,189,248,0.2);border-radius:10px;padding:0.8rem 1.2rem;display:flex;align-items:center;gap:1rem;">
-                    <span style="font-size:1.3rem;"></span>
-                    <div>
-                        <div style="font-weight:600;font-size:0.9rem;">API Gateway</div>
-                        <div style="font-size:0.78rem;color:#5a7090;">
-                            <!-- PLACEHOLDER: Replace with your gateway tech -->
-                            PLACEHOLDER-GATEWAY · Request routing · Auth middleware
-                        </div>
-                    </div>
-                </div>
-                <div style="text-align:center;color:#3b82f6;font-size:1rem;">↓</div>
-                <!-- Services grid -->
-                <div style="display:grid;grid-template-columns:repeat(6,1fr);gap:0.6rem;">
-                    <div style="background:rgba(129,140,248,0.10);border:1px solid rgba(56,189,248,0.25);border-radius:8px;padding:0.5rem 0.5rem;text-align:center;font-size:0.75rem;color:#7dd3fc;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:3rem;">Menu</div>
 
-                    <div style="background:rgba(129,140,248,0.10);border:1px solid rgba(129,140,248,0.25);border-radius:8px;padding:0.5rem 0.5rem;text-align:center;font-size:0.75rem;color:#c4b5fd;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:3rem;">Order</div>
-
-                    <div style="background:rgba(129,140,248,0.10);border:1px solid rgba(56,189,248,0.25);border-radius:8px;padding:0.5rem 0.5rem;text-align:center;font-size:0.75rem;color:#7dd3fc;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:3rem;">Payment</div>
-
-                    <div style="background:rgba(129,140,248,0.10);border:1px solid rgba(129,140,248,0.25);border-radius:8px;padding:0.5rem 0.5rem;text-align:center;font-size:0.75rem;color:#c4b5fd;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:3rem;">Wallet</div>
-
-                    <div style="background:rgba(129,140,248,0.10);border:1px solid rgba(56,189,248,0.25);border-radius:8px;padding:0.5rem 0.5rem;text-align:center;font-size:0.75rem;color:#7dd3fc;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:3rem;">VAT</div>
-
-                    <div style="background:rgba(129,140,248,0.10);border:1px solid rgba(129,140,248,0.25);border-radius:8px;padding:0.5rem 0.5rem;text-align:center;font-size:0.75rem;color:#c4b5fd;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:3rem;">Blockchain</div>
-                </div>
-                <div style="text-align:center;color:#3b82f6;font-size:1rem;">↓</div>
-                <!-- DB -->
-                <div style="background:rgba(239,68,68,0.06);border:1px solid rgba(239,68,68,0.15);border-radius:10px;padding:0.8rem 1.2rem;display:flex;align-items:center;gap:1rem;">
-                    <span style="font-size:1.3rem;"></span>
-                    <div>
-                        <div style="font-weight:600;font-size:0.9rem;">MySQL Database</div>
-                        <div style="font-size:0.78rem;color:#5a7090;">Transaction records · VAT entries · Wallet balances · Audit log</div>
-                    </div>
+                <!-- Zoom controls -->
+                <div style="display:flex;justify-content:center;gap:0.6rem;margin-top:0.6rem;">
+                    <button onclick="umlZoom(0.2)" style="background:rgba(56,189,248,0.12);border:1px solid rgba(56,189,248,0.3);color:#7dd3fc;border-radius:6px;padding:0.3rem 0.8rem;font-size:0.8rem;cursor:pointer;">＋ Zoom In</button>
+                    <button onclick="umlZoom(-0.2)" style="background:rgba(56,189,248,0.12);border:1px solid rgba(56,189,248,0.3);color:#7dd3fc;border-radius:6px;padding:0.3rem 0.8rem;font-size:0.8rem;cursor:pointer;">－ Zoom Out</button>
+                    <button onclick="umlReset()" style="background:rgba(129,140,248,0.10);border:1px solid rgba(129,140,248,0.25);color:#c4b5fd;border-radius:6px;padding:0.3rem 0.8rem;font-size:0.8rem;cursor:pointer;">↺ Reset</button>
                 </div>
             </div>
+
+            <script>
+                (function(){
+                    let scale = 1;
+                    let posX = 0, posY = 0;
+                    let isDragging = false;
+                    let startX, startY;
+                    const container = document.getElementById('uml-container');
+                    const img = document.getElementById('uml-img');
+                    const laser = document.getElementById('laser-dot');
+
+                    function applyTransform() {
+                        img.style.transform = `scale(${scale}) translate(${posX/scale}px, ${posY/scale}px)`;
+                    }
+
+                    // Zoom buttons
+                    window.umlZoom = function(delta) {
+                        scale = Math.min(Math.max(scale + delta, 0.5), 5);
+                        applyTransform();
+                    };
+                    window.umlReset = function() {
+                        scale = 1; posX = 0; posY = 0;
+                        applyTransform();
+                    };
+
+                    // Scroll to zoom
+                    container.addEventListener('wheel', function(e) {
+                        e.preventDefault();
+                        const delta = e.deltaY > 0 ? -0.15 : 0.15;
+                        scale = Math.min(Math.max(scale + delta, 0.5), 5);
+                        applyTransform();
+                    }, { passive: false });
+
+                    // Drag to pan
+                    container.addEventListener('mousedown', function(e) {
+                        isDragging = true;
+                        startX = e.clientX - posX;
+                        startY = e.clientY - posY;
+                        container.style.cursor = 'none';
+                    });
+                    document.addEventListener('mouseup', function() { isDragging = false; });
+                    document.addEventListener('mousemove', function(e) {
+                        if (isDragging) {
+                            posX = e.clientX - startX;
+                            posY = e.clientY - startY;
+                            applyTransform();
+                        }
+                    });
+
+                    // Laser pointer
+                    container.addEventListener('mouseenter', function() { laser.style.display = 'block'; });
+                    container.addEventListener('mouseleave', function() { laser.style.display = 'none'; });
+                    container.addEventListener('mousemove', function(e) {
+                        const rect = container.getBoundingClientRect();
+                        laser.style.left = (e.clientX - rect.left) + 'px';
+                        laser.style.top  = (e.clientY - rect.top)  + 'px';
+                    });
+                })();
+            </script>
         </div>
     </div>
 
@@ -1078,7 +1108,7 @@
                     PLACEHOLDER: Replace with real GitHub QR code image:
                     <img src="qr-github.png" alt="QR Code GitHub" style="width:130px;height:130px;border-radius:10px;">
                 -->
-                <img src="QRCODE.png" alt="QR Code GitHub" style="width:130px;height:130px;border-radius:10px;">
+                <img src="QRCODEGIT.png" alt="QR Code GitHub" style="width:130px;height:130px;border-radius:10px;">
 
 
                 <div style="display:flex;flex-direction:column;align-items:center;gap:0.3rem;">
